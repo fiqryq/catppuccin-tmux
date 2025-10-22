@@ -2,7 +2,7 @@
 # WARNING: hex colors can't contain capital letters
 
 # --> Catppuccin (Latte)
-thm_bg="default"
+thm_bg="#dce0e8"
 thm_fg="#4c4f69"
 thm_cyan="#179299"
 thm_black="#e6e9ef"

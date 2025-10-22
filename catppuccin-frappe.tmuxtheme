@@ -2,7 +2,7 @@
 # WARNING: hex colors can't contain capital letters
 
 # --> Catppuccin (Frappe)
-thm_bg="default"
+thm_bg="#303446"
 thm_fg="#c6d0f5"
 thm_cyan="#99d1db"
 thm_black="#292c3c"
