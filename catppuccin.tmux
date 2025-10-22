@@ -123,31 +123,28 @@ build_status_module() {
   local color=$3
   local text=$4
 
-  # NOTE: keep the statusline transparent: use bg=$thm_bg (== "default")
+  # Keep the statusline transparent by using bg=$thm_bg (== "default")
   if [ "$status_fill" = "icon" ]; then
-    # Colored separators on transparent bg
+    # separators colored, background transparent
     local show_left_separator="#[fg=$color,bg=$thm_bg,nobold,nounderscore,noitalics]$status_left_separator"
 
-    # Icon: colored glyph, no solid bg
-    # (You can drop bg entirely or keep bg=$thm_bg; both are transparent.)
+    # icon: colored glyph, transparent bg (you can also drop bg= entirely)
     local show_icon="#[fg=$color,bg=$thm_bg,nobold,nounderscore,noitalics]$icon "
 
-    # Text on transparent bg
+    # text: normal fg on transparent bg
     local show_text="#[fg=$thm_fg,bg=$thm_bg] $text"
 
-    # Right separator colored on transparent bg
+    # right separator colored on transparent bg
     local show_right_separator="#[fg=$color,bg=$thm_bg,nobold,nounderscore,noitalics]$status_right_separator"
 
     if [ "$status_connect_separator" = "yes" ]; then
-      # keep connectors transparent as well
       show_left_separator="#[fg=$color,bg=$thm_bg,nobold,nounderscore,noitalics]$status_left_separator"
       show_right_separator="#[fg=$color,bg=$thm_bg,nobold,nounderscore,noitalics]$status_right_separator"
     fi
   fi
 
   if [ "$status_fill" = "all" ]; then
-    # This mode intentionally fills backgrounds with the accent color.
-    # Leave as-is to preserve that behavior.
+    # "all" intentionally fills backgrounds; keep existing behavior
     local show_left_separator="#[fg=$color,bg=$thm_bg,nobold,nounderscore,noitalics]$status_left_separator"
     local show_icon="#[fg=$thm_bg,bg=$color,nobold,nounderscore,noitalics]$icon "
     local show_text="#[fg=$thm_bg,bg=$color]$text"
@@ -168,7 +165,7 @@ build_status_module() {
   fi
 
   if [ $(($index)) -eq 0 ]; then
-    # First module’s left separator (keep transparent bg)
+    # first module start; keep transparent bg
     show_left_separator="#[fg=$color,bg=$thm_bg,nobold,nounderscore,noitalics]$status_left_separator"
   fi
 
