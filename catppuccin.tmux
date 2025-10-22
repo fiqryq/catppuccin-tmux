@@ -125,7 +125,7 @@ build_status_module() {
   if [ "$status_fill" = "icon" ]; then
     local show_left_separator="#[fg=$color,bg=$thm_gray,nobold,nounderscore,noitalics]$status_left_separator"
 
-    local show_icon="#[fg=$thm_bg,bg=$color,nobold,nounderscore,noitalics]$icon "
+    local show_icon="#[fg=$color,bg=$color,nobold,nounderscore,noitalics]$icon "
     local show_text="#[fg=$thm_fg,bg=$thm_gray] $text"
 
     local show_right_separator="#[fg=$thm_gray,bg=$thm_bg,nobold,nounderscore,noitalics]$status_right_separator"
@@ -252,7 +252,7 @@ main() {
 
   # status
   set status "on"
-  set status-bg "${thm_bg}"
+  set status-style "bg=${thm_bg},fg=${thm_fg}"
   set status-justify "left"
   set status-left-length "100"
   set status-right-length "100"
