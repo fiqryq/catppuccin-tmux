@@ -69,20 +69,20 @@ build_window_format() {
   fi
 
   if [ "$fill" = "none" ]; then
-    local show_left_separator="#[fg=$thm_gray,bg=default,nobold,nounderscore,noitalics]$window_left_separator"
+    local show_left_separator="#[fg=$thm_gray,bg=$thm_bg,nobold,nounderscore,noitalics]$window_left_separator"
     local show_number="#[fg=$thm_fg,bg=$thm_gray]$number"
     local show_middle_separator="#[fg=$thm_fg,bg=$thm_gray,nobold,nounderscore,noitalics]$window_middle_separator"
     local show_text="#[fg=$thm_fg,bg=$thm_gray]$text"
-    local show_right_separator="#[fg=$thm_gray,bg=default]$window_right_separator"
+    local show_right_separator="#[fg=$thm_gray,bg=$thm_bg]$window_right_separator"
 
   fi
 
   if [ "$fill" = "all" ]; then
-    local show_left_separator="#[fg=$color,bg=default,nobold,nounderscore,noitalics]$window_left_separator"
+    local show_left_separator="#[fg=$color,bg=$thm_bg,nobold,nounderscore,noitalics]$window_left_separator"
     local show_number="#[fg=$background,bg=$color]$number"
     local show_middle_separator="#[fg=$background,bg=$color,nobold,nounderscore,noitalics]$window_middle_separator"
     local show_text="#[fg=$background,bg=$color]$text"
-    local show_right_separator="#[fg=$color,bg=default]$window_right_separator"
+    local show_right_separator="#[fg=$color,bg=$thm_bg]$window_right_separator"
 
   fi
 
@@ -92,13 +92,13 @@ build_window_format() {
     local show_text="#[fg=$thm_fg,bg=$background]$text"
 
     if [ "$window_number_position" = "right" ]; then
-      local show_left_separator="#[fg=$background,bg=default,nobold,nounderscore,noitalics]$window_left_separator"
-      local show_right_separator="#[fg=$color,bg=default]$window_right_separator"
+      local show_left_separator="#[fg=$background,bg=$thm_bg,nobold,nounderscore,noitalics]$window_left_separator"
+      local show_right_separator="#[fg=$color,bg=$thm_bg]$window_right_separator"
     fi
 
     if [ "$window_number_position" = "left" ]; then
-      local show_right_separator="#[fg=$background,bg=default,nobold,nounderscore,noitalics]$window_right_separator"
-      local show_left_separator="#[fg=$color,bg=default]$window_left_separator"
+      local show_right_separator="#[fg=$background,bg=$thm_bg,nobold,nounderscore,noitalics]$window_right_separator"
+      local show_left_separator="#[fg=$color,bg=$thm_bg]$window_left_separator"
     fi
 
   fi
@@ -123,53 +123,53 @@ build_status_module() {
   local text=$4
 
   if [ "$status_fill" = "icon" ]; then
-    local show_left_separator="#[fg=$color,bg=default,nobold,nounderscore,noitalics]$status_left_separator"
+    local show_left_separator="#[fg=$color,bg=$thm_gray,nobold,nounderscore,noitalics]$status_left_separator"
 
-    local show_icon="#[fg=default,bg=$color,nobold,nounderscore,noitalics]$icon "
-    local show_text="#[fg=$thm_fg,bg=default] $text"
+    local show_icon="#[fg=$thm_bg,bg=$color,nobold,nounderscore,noitalics]$icon "
+    local show_text="#[fg=$thm_fg,bg=$thm_gray] $text"
 
-    local show_right_separator="#[fg=$color,bg=default,nobold,nounderscore,noitalics]$status_right_separator"
+    local show_right_separator="#[fg=$thm_gray,bg=$thm_bg,nobold,nounderscore,noitalics]$status_right_separator"
 
     if [ "$status_connect_separator" = "yes" ]; then
-      local show_left_separator="#[fg=$color,bg=default,nobold,nounderscore,noitalics]$status_left_separator"
-      local show_right_separator="#[fg=$color,bg=default,nobold,nounderscore,noitalics]$status_right_separator"
+      local show_left_separator="#[fg=$color,bg=$thm_gray,nobold,nounderscore,noitalics]$status_left_separator"
+      local show_right_separator="#[fg=$thm_gray,bg=$thm_gray,nobold,nounderscore,noitalics]$status_right_separator"
 
     else
-      local show_left_separator="#[fg=$color,bg=default,nobold,nounderscore,noitalics]$status_left_separator"
-      local show_right_separator="#[fg=$color,bg=default,nobold,nounderscore,noitalics]$status_right_separator"
+      local show_left_separator="#[fg=$color,bg=$thm_bg,nobold,nounderscore,noitalics]$status_left_separator"
+      local show_right_separator="#[fg=$thm_gray,bg=$thm_bg,nobold,nounderscore,noitalics]$status_right_separator"
     fi
 
   fi
 
   if [ "$status_fill" = "all" ]; then
-    local show_left_separator="#[fg=$color,bg=default,nobold,nounderscore,noitalics]$status_left_separator"
+    local show_left_separator="#[fg=$color,bg=$thm_gray,nobold,nounderscore,noitalics]$status_left_separator"
 
-    local show_icon="#[fg=default,bg=$color,nobold,nounderscore,noitalics]$icon "
-    local show_text="#[fg=default,bg=$color]$text"
+    local show_icon="#[fg=$thm_bg,bg=$color,nobold,nounderscore,noitalics]$icon "
+    local show_text="#[fg=$thm_bg,bg=$color]$text"
 
-    local show_right_separator="#[fg=$color,bg=default,nobold,nounderscore,noitalics]$status_right_separator"
+    local show_right_separator="#[fg=$color,bg=$thm_gray,nobold,nounderscore,noitalics]$status_right_separator"
 
     if [ "$status_connect_separator" = "yes" ]; then
       local show_left_separator="#[fg=$color,nobold,nounderscore,noitalics]$status_left_separator"
       local show_right_separator="#[fg=$color,bg=$color,nobold,nounderscore,noitalics]$status_right_separator"
 
     else
-      local show_left_separator="#[fg=$color,bg=default,nobold,nounderscore,noitalics]$status_left_separator"
-      local show_right_separator="#[fg=$color,bg=default,nobold,nounderscore,noitalics]$status_right_separator"
+      local show_left_separator="#[fg=$color,bg=$thm_bg,nobold,nounderscore,noitalics]$status_left_separator"
+      local show_right_separator="#[fg=$color,bg=$thm_bg,nobold,nounderscore,noitalics]$status_right_separator"
     fi
 
   fi
 
   if [ "$status_right_separator_inverse" = "yes" ]; then
     if [ "$status_connect_separator" = "yes" ]; then
-      local show_right_separator="#[fg=default,bg=$color,nobold,nounderscore,noitalics]$status_right_separator"
+      local show_right_separator="#[fg=$thm_gray,bg=$color,nobold,nounderscore,noitalics]$status_right_separator"
     else
-      local show_right_separator="#[fg=default,bg=$color,nobold,nounderscore,noitalics]$status_right_separator"
+      local show_right_separator="#[fg=$thm_bg,bg=$color,nobold,nounderscore,noitalics]$status_right_separator"
     fi
   fi
 
   if [ $(($index)) -eq 0 ]; then
-    local show_left_separator="#[fg=$color,bg=default,nobold,nounderscore,noitalics]$status_left_separator"
+    local show_left_separator="#[fg=$color,bg=$thm_bg,nobold,nounderscore,noitalics]$status_left_separator"
   fi
 
   echo "$show_left_separator$show_icon$show_text$show_right_separator"
@@ -252,23 +252,23 @@ main() {
 
   # status
   set status "on"
-  set status-bg "default"
+  set status-bg "${thm_bg}"
   set status-justify "left"
   set status-left-length "100"
   set status-right-length "100"
 
   # messages
-  set message-style "fg=${thm_cyan},bg=default,align=centre"
-  set message-command-style "fg=${thm_cyan},bg=default,align=centre"
+  set message-style "fg=${thm_cyan},bg=${thm_gray},align=centre"
+  set message-command-style "fg=${thm_cyan},bg=${thm_gray},align=centre"
 
   # panes
   set pane-border-style "fg=${thm_gray}"
   set pane-active-border-style "fg=${thm_blue}"
 
   # windows
-  setw window-status-activity-style "fg=${thm_fg},bg=default,none"
+  setw window-status-activity-style "fg=${thm_fg},bg=${thm_bg},none"
   setw window-status-separator ""
-  setw window-status-style "fg=${thm_fg},bg=default,none"
+  setw window-status-style "fg=${thm_fg},bg=${thm_bg},none"
 
   # --------=== Statusline
 
